@@ -14,9 +14,14 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       current_user.posts << @post
-      redirect_to posts_path
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
     else
-      render 'new'
+       respond_to do |format|
+        format.js {render 'new'}
+      end
     end
   end
 

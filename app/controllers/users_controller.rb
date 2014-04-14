@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 
-  before_filter :authorize, only: [:new, :edit, :update, :destroy, :show]
+  before_filter :authorize, only: [:edit, :update, :destroy, :show]
   def new
     @user = User.new
   end

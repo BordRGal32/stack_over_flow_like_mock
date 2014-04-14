@@ -1,16 +1,19 @@
 <h1>Welcome <%= @user.name %></h1>
 
+
 <h2>Your Posts</h2>
 
-<ul>
-  <% if @user.posts.length != 0 %>
+  <ul id="post_list">
+    <% if @user.posts.length != 0 %>
 
-      <% @user.posts.each do |post| %>
-          <li><%= post.name %> : <%= post.comment %><%= link_to "Edit Post | ", edit_post_path(post) %> <%= link_to "Delete Post", post_path(post),
-                         :confirm => "You sure?",
-                         :method => "delete" %> </li>
-      <% end %>
-  <%end%>
+        <% @user.posts.each do |post| %>
+            <li><%= post.name %> : <%= post.comment %><%= link_to "Edit Post | ", edit_post_path(post) %> <%= link_to "Delete Post", post_path(post),
+                           :confirm => "You sure?",
+                           :method => "delete" %> </li>
+        <% end %>
+
+    <%end%>
+ </ul>
 <h2>Your answers</h2>
   <% if @user.answers.length != 0 %>
 
@@ -25,7 +28,7 @@
 
 
 
-<%= link_to "Create a new post", new_post_path, :class => "btn btn-info" %>
+<%= link_to "Create a new post", new_post_path, id: "new_post_link", remote: true, :class => "btn btn-info" %>
 
 
 
