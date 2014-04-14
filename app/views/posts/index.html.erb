@@ -1,0 +1,17 @@
+<h1>Here are the current posts</h1>
+
+
+
+<ol>
+  <% @posts.each do |post| %>
+    <li>
+        <%= link_to  "#{post.name}", post_path(post) %>
+    </li>
+  <% end %>
+</ol>
+
+<% if current_user %>
+
+    <%= link_to "Create a new post", new_post_path, :class => "btn btn-primary" %>
+
+<% end %>
