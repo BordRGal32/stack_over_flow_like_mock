@@ -10,9 +10,23 @@
                          :confirm => "You sure?",
                          :method => "delete" %> </li>
       <% end %>
+  <%end%>
+<h2>Your answers</h2>
+  <% if @user.answers.length != 0 %>
 
+        <% @user.answers.each do |answer|%>
+          <li> <%= answer.answer%> <%= link_to "Edit Answer | ", edit_answer_path(answer) %> <%= link_to "Delete Answer", answer_path(answer), :confirm => "You sure?", :method => "delete" %> </li>
+
+          </li>
+
+    <%end%>
   <% end %>
 </ul>
+
+
+
+<%= link_to "Create a new post", new_post_path, :class => "btn btn-info" %>
+
 
 
 <nav class="navbar navbar-fixed-bottom" role="navigation">

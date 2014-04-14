@@ -7,5 +7,10 @@ OverflowClone::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users
 
-  resources :posts
+  resources :posts do
+    resources :answers, :only => [:new, :create]
+  end
+
+  resources :answers, :only => [:destroy, :edit, :update]
+
 end
