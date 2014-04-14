@@ -13,9 +13,15 @@ class AnswersController < ApplicationController
       @answer.update(:user_id => current_user.id)
       @post.answers << @answer
       flash[:notice] = "Answer Added"
-      redirect_to post_path(@post)
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
     else
-      render 'new'
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js { render 'new' }
+      end
     end
   end
 

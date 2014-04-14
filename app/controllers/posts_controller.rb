@@ -20,6 +20,7 @@ class PostsController < ApplicationController
       end
     else
        respond_to do |format|
+        format.html { redirect_to users_path(current_user) }
         format.js {render 'new'}
       end
     end

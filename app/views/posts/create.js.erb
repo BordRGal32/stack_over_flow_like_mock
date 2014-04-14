@@ -1,4 +1,5 @@
 $('#new_post_link').show();
+$('.error_messages').remove();
 $('#new_post').remove();
 
 $('#post_list').append('<li> <%= @post.name %> : <%= @post.comment %><%= link_to "Edit Post | ", edit_post_path(@post) %> <%= link_to "Delete Post", post_path(@post),

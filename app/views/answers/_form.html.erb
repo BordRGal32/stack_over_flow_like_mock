@@ -1,0 +1,12 @@
+<%= render("layouts/errors", :object => @post) %>
+
+<div id="new_answer">
+  <%= form_for [@post, @answer], remote: true do |f| %>
+    <div class="form-group">
+      <%= f.label :answer %></br>
+      <%= f.text_area :answer %>
+    </div>
+
+    <%= f.submit(:class => "btn btn-primary") %>
+  <% end %>
+</div>

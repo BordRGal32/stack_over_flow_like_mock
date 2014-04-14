@@ -1,15 +1,16 @@
 <%= render("layouts/errors", :object => @post) %>
+<div id="post_form">
+  <%= form_for @post, remote: true do |f| %>
+    <div class="form-group">
+      <%= f.label :name, "Title" %></br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form-group">
+      <%= f.label :comment, "Question" %></br>
+      <%= f.text_area :comment %>
+    </div>
 
-<%= form_for @post, remote: true do |f| %>
-  <div class="form-group">
-    <%= f.label :name, "Title" %></br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="form-group">
-    <%= f.label :comment, "Question" %></br>
-    <%= f.text_area :comment %>
-  </div>
 
-
-  <%= f.submit(:class => "btn btn-primary") %>
-<% end %>
+    <%= f.submit(:class => "btn btn-primary") %>
+  <% end %>
+</div>
