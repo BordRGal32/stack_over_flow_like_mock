@@ -1,0 +1,9 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: overflow_clone_development
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: overflow_clone_test

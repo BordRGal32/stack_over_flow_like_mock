@@ -1,0 +1,17 @@
+<h1>Log In</h1>
+
+<%= form_tag sessions_path do %>
+  <div class="field">
+        <%= label_tag :name %><br />
+        <%= text_field_tag :name, params[:name] %>
+  </div>
+
+  <div class="field">
+        <%= label_tag :password %><br />
+        <%= password_field_tag :password, params[:password] %>
+  </div>
+  <br>
+  <%= submit_tag "Log In", :class => "btn btn-primary" %>
+<% end %>
+<br>
+<%= link_to "Homepage", new_user_path, :class => "btn btn-primary" %>

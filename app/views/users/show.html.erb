@@ -1,0 +1,10 @@
+<h1>Welcome <%= @user.name %></h1>
+
+<p> Display Posts Go Here</p>
+
+<nav class="navbar navbar-fixed-bottom" role="navigation">
+<p><%= link_to "Edit this user", edit_user_path(@user)%>
+       <%= link_to "Delete this user", user_path(@user),
+                         :confirm => "You sure?",
+                         :method => "delete" %></p>
+</nav>
