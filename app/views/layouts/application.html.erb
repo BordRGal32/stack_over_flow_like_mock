@@ -11,8 +11,10 @@
   <span class="logo">OverFlow Clone</span>
   <span class="pull-right">
     <%= link_to "Main Page", root_path %> |
+    <%= link_to "Sign Up", signup_path %> |
     <% if current_user.nil? %>
-      <%= link_to "Login", login_path %>
+      <%= link_to "Login", login_path %> |
+
     <% else %>
       <%= link_to "Add New User", signup_path %> |
       <%= link_to "Logout", logout_path %> |

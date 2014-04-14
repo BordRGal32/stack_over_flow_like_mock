@@ -1,6 +1,19 @@
 <h1>Welcome <%= @user.name %></h1>
 
-<p> Display Posts Go Here</p>
+<h2>Your Posts</h2>
+
+<ul>
+  <% if @user.posts.length != 0 %>
+
+      <% @user.posts.each do |post| %>
+          <li><%= post.name %> : <%= post.comment %><%= link_to "Edit Post | ", edit_post_path(post) %> <%= link_to "Delete Post", post_path(post),
+                         :confirm => "You sure?",
+                         :method => "delete" %> </li>
+      <% end %>
+
+  <% end %>
+</ul>
+
 
 <nav class="navbar navbar-fixed-bottom" role="navigation">
 <p><%= link_to "Edit this user", edit_user_path(@user)%>

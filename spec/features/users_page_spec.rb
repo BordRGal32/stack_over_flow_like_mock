@@ -25,6 +25,6 @@ feature 'Creating a new user' do
     user = FactoryGirl.create(:user)
     visit user_path(user)
     click_on "Delete this user"
-    page.should have_content "Sign up page"
+    page.should have_content "Here"
   end
 end
