@@ -3,9 +3,14 @@
 
 <ul id="answer_list">
   <% @post.answers.each do |answer| %>
-    <li><%= answer.answer %></li>
+    <li><%= answer.answer %>
+      <% if current_user.id == answer.user.id %>
+      <%= link_to "Vote as Best", controller: "answers", action: "vote", id: answer.id %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
+
 
 <% if current_user %>
   <%= link_to "Add an Answer", new_post_answer_path(@post), id: "new_answer_link", remote: true %>

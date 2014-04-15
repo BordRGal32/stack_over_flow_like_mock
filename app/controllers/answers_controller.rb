@@ -12,6 +12,7 @@ class AnswersController < ApplicationController
     if @answer.save
       @answer.update(:user_id => current_user.id)
       @post.answers << @answer
+      @answer.update(:best_answer => false)
       flash[:notice] = "Answer Added"
       respond_to do |format|
         format.html { redirect_to :back }
@@ -38,6 +39,13 @@ class AnswersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def vote
+    target_answer = Answer.find(params[:id])
+    Answer.remove_best_answer
+    target_answer.mark_best_answer
+    redirect_to root_path
 
   end
   def destroy
